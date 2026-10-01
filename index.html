@@ -19,6 +19,14 @@
     .tile:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
     /* Eltern-Zone (specs/parent-zone): unsichtbare Ecke. Transparent, sonst verdeckt sie im Hochformat den Bildrahmen. */
     .parent-zone { position: fixed; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); width: 64px; height: 64px; background: transparent; z-index: 5; touch-action: none; -webkit-tap-highlight-color: transparent; }
+    /* Entdeck-Hinweis und Halte-Ring (parent-zone-hint D2): gedruckter Fleck, nur die Deckkraft ändert sich, in Stufen (≤ 12 je s) */
+    .pz-hint { position: absolute; left: 8px; top: 8px; width: 48px; height: 48px; pointer-events: none; opacity: 0; }
+    .pz-hint.pz-pulse { animation: pz-pulse 3s infinite steps(11, end); }
+    .pz-hint.pz-still { opacity: 0.2; }
+    .pz-hint.pz-holding { opacity: 0.9; animation: none; }
+    .pz-hint.pz-off { opacity: 0; animation: none; }
+    @keyframes pz-pulse { 0% { opacity: 0; } 30% { opacity: 0.35; } 70% { opacity: 0; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .pz-hint.pz-pulse { animation: none; opacity: 0.2; } }
     .parent-layer { position: fixed; inset: 0; z-index: 20; overflow-y: auto; box-sizing: border-box; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); background: var(--paper); color: var(--ink); font: 16px/1.4 -apple-system, system-ui, sans-serif; -webkit-user-select: auto; user-select: auto; }
     .parent-layer[hidden] { display: none; }
     .parent-layer h2 { font-size: 15px; font-weight: 600; margin: 18px 0 10px; }
@@ -68,8 +76,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-CpEhzXtc.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-CJX7qb0A.js">
+  <script type="module" crossorigin src="./assets/main-C6C5yiF2.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-DwM41KwR.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
