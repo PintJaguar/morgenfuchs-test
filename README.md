@@ -4,4 +4,4 @@ Zum Ausprobieren: https://pintjaguar.github.io/morgenfuchs-test/
 
 Nur der fertige Build; der Quellcode liegt in einem privaten Repo.
 
-Stand 02.10. · 20c5017
+Stand 05.10. · 20c5017
