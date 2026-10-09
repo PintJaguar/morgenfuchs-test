@@ -48,10 +48,6 @@
     .parent-sound[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
     .parent-sound[aria-pressed="false"] { text-decoration: line-through; }
     .parent-action--confirm { background: var(--ink); color: var(--paper); }
-    .parent-confirm { display: flex; }
-    .parent-confirm[hidden] { display: none; }
-    .parent-confirm--wait { flex-wrap: wrap; }
-    .parent-confirm-text { flex: 0 0 100%; margin: 6px 0 0; font-size: 15px; }
     .parent-done { display: block; position: sticky; bottom: 0; width: 100%; min-height: 64px; margin-top: 22px; border: 2px solid var(--ink); border-radius: 12px; background: var(--ink); color: var(--paper); font: 16px/1.2 -apple-system, system-ui, sans-serif; }
     .parent-build { margin: 8px 0 0; text-align: center; font: 12px/1.2 -apple-system, system-ui, sans-serif; color: var(--ink); opacity: 0.6; }
     /* Quer (iPad, auch mit Safari-Leisten ~1180x740): zwei Spalten, alles bis "Fertig" ohne Scrollen (fox-arms-feedback D5). */
@@ -65,8 +61,17 @@
     .tile-wait-same { margin: 6px 0; }
     .tile-wait-done { margin-top: 14px; }
     .parent-cols { display: block; }
+    @media (max-width: 479px) {
+      .parent-layer { padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
+      .parent-layer h2 { margin: 10px 0 6px; }
+      .parent-grid { gap: 8px; }
+      .parent-btn { padding: 6px; }
+      .parent-action { margin: 4px 10px 4px 0; }
+      .parent-done { margin-top: 10px; }
+      .parent-build { margin-top: 4px; }
+    }
     .parent-col > h2:first-child { margin-top: 0; }
-    @media (min-width: 1024px) and (orientation: landscape) {
+    @media (orientation: landscape) and ((min-width: 1024px) or (max-height: 499px)) {
       .parent-layer { padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px)); }
       .parent-cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; align-items: start; }
       .parent-layer h2 { margin: 10px 0 6px; }
@@ -76,8 +81,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-BJX4lBmF.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-DTIbYj6B.js">
+  <script type="module" crossorigin src="./assets/main-Dtn63ZhX.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-BSg7YE6s.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
