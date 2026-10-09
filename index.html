@@ -15,10 +15,10 @@
     html, body { margin: 0; height: 100%; background: var(--paper); overflow: hidden; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
     #stage { position: fixed; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); bottom: env(safe-area-inset-bottom, 0px); left: env(safe-area-inset-left, 0px); }
     canvas { display: block; }
-    /* Abdunkeln während der Wartezeit (dim-while-waiting D2): deckt das ganze Fenster (auch Letterbox, Safe-Area), fängt keine Berührung. Über #stage (inkl. Eltern-Ecke), unter Eltern-Ebene und Einstell-Feld (z-index 20). Kein transition: die Stufen kommen aus dem Takt (1/12 s). */
-    #dim { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 10; }
     .tile { position: absolute; background: transparent; border: 0; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
     .tile:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+    /* Putz-Szene (brushing-scene D3): über Szene und Kacheln, unter der Eltern-Ecke (z 5); fängt Tipps ab */
+    .brush-session { position: absolute; left: 0; top: 0; z-index: 4; touch-action: none; }
     /* Eltern-Zone (specs/parent-zone): unsichtbare Ecke. Transparent, sonst verdeckt sie im Hochformat den Bildrahmen. */
     .parent-zone { position: fixed; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); width: 64px; height: 64px; background: transparent; z-index: 5; touch-action: none; -webkit-tap-highlight-color: transparent; }
     /* Entdeck-Hinweis und Halte-Ring (parent-zone-hint D2): gedruckter Fleck, nur die Deckkraft ändert sich, in Stufen (≤ 12 je s) */
@@ -46,9 +46,9 @@
     .parent-wait-value { display: inline-block; min-width: 124px; text-align: center; font-size: 20px; font-variant-numeric: tabular-nums; }
     /* Ton-Schalter: an = gefüllt, aus = leer + durchgestrichen (auch ohne Farbe erkennbar) */
     .parent-sound-row { display: flex; }
-    .parent-sound, .parent-dim { min-width: 120px; }
-    .parent-sound[aria-pressed="true"], .parent-dim[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-    .parent-sound[aria-pressed="false"], .parent-dim[aria-pressed="false"] { text-decoration: line-through; }
+    .parent-sound { min-width: 120px; }
+    .parent-sound[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+    .parent-sound[aria-pressed="false"] { text-decoration: line-through; }
     .parent-action--confirm { background: var(--ink); color: var(--paper); }
     .parent-done { display: block; position: sticky; bottom: 0; width: 100%; min-height: 64px; margin-top: 22px; border: 2px solid var(--ink); border-radius: 12px; background: var(--ink); color: var(--paper); font: 16px/1.2 -apple-system, system-ui, sans-serif; }
     .parent-build { margin: 8px 0 0; text-align: center; font: 12px/1.2 -apple-system, system-ui, sans-serif; color: var(--ink); opacity: 0.6; }
@@ -83,11 +83,10 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-c3-CEhWW.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-DxN6F7P8.js">
+  <script type="module" crossorigin src="./assets/main-Bzjum5QY.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-DQKBnkdp.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
-  <div id="dim" data-dim="1.00" aria-hidden="true"></div>
 </body>
 </html>
