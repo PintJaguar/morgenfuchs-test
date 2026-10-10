@@ -33,8 +33,15 @@
     .pz-hint.pz-still { opacity: 0.2; }
     .pz-hint.pz-holding { opacity: 0.9; animation: none; }
     .pz-hint.pz-off { opacity: 0; animation: none; }
+    /* Bei abgedunkeltem Bild (Abdunkeln): die Ecke liegt über dem Overlay und leuchtet hell, invertiert zum Dunkel, und pulsiert (Marc 10.10.) */
+    .pz-glow { position: fixed; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); width: 64px; height: 64px; z-index: 11; pointer-events: none; }
+    .pz-glow .pz-hint { left: 8px; top: 8px; }
+    .pz-hint.pz-darkmode { filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)); }
+    .pz-hint.pz-darkmode.pz-pulse { animation: pz-pulse-dark 3s infinite steps(11, end); }
+    .pz-hint.pz-darkmode.pz-still { opacity: 0.6; }
+    @keyframes pz-pulse-dark { 0% { opacity: 0.45; } 30% { opacity: 1; } 70% { opacity: 0.45; } 100% { opacity: 0.45; } }
     @keyframes pz-pulse { 0% { opacity: 0; } 30% { opacity: 0.35; } 70% { opacity: 0; } 100% { opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) { .pz-hint.pz-pulse { animation: none; opacity: 0.2; } }
+    @media (prefers-reduced-motion: reduce) { .pz-hint.pz-pulse { animation: none; opacity: 0.2; } .pz-hint.pz-darkmode.pz-pulse { animation: none; opacity: 0.6; } }
     .parent-layer { position: fixed; inset: 0; z-index: 20; overflow-y: auto; box-sizing: border-box; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); background: var(--paper); color: var(--ink); font: 16px/1.4 -apple-system, system-ui, sans-serif; -webkit-user-select: auto; user-select: auto; }
     .parent-layer[hidden] { display: none; }
     .parent-layer h2 { font-size: 15px; font-weight: 600; margin: 18px 0 10px; }
@@ -93,8 +100,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-CADzN93X.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-DBzzO_4V.js">
+  <script type="module" crossorigin src="./assets/main-ioXETiyU.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-u87kCd6h.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
