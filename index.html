@@ -64,6 +64,9 @@
     .parent-sound, .parent-dim, .parent-brush-anim { min-width: 120px; }
     .parent-sound[aria-pressed="true"], .parent-dim[aria-pressed="true"], .parent-brush-anim[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
     .parent-sound[aria-pressed="false"], .parent-dim[aria-pressed="false"], .parent-brush-anim[aria-pressed="false"] { text-decoration: line-through; }
+    /* beide Zurücksetzen-Schalter in einer Zeile, Text darf umbrechen (Handy hoch: 375 px, alles ohne Scrollen) */
+    .parent-reset-row { display: flex; gap: 8px; }
+    .parent-reset-row .parent-action { flex: 1 1 0; min-width: 0; margin: 6px 0; padding: 0 8px; text-align: center; }
     .parent-action--confirm { background: var(--ink); color: var(--paper); }
     .parent-done { display: block; position: sticky; bottom: 0; width: 100%; min-height: 64px; margin-top: 22px; border: 2px solid var(--ink); border-radius: 12px; background: var(--ink); color: var(--paper); font: 16px/1.2 -apple-system, system-ui, sans-serif; }
     .parent-build { margin: 8px 0 0; text-align: center; font: 12px/1.2 -apple-system, system-ui, sans-serif; color: var(--ink); opacity: 0.6; }
@@ -104,8 +107,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-BWdeED--.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-Khkumapb.js">
+  <script type="module" crossorigin src="./assets/main-q_hnMBJk.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-Cq-o2ACX.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
