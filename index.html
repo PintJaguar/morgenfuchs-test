@@ -82,10 +82,14 @@
       .parent-layer { padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
       .parent-layer h2 { margin: 10px 0 6px; }
       .parent-grid { gap: 8px; }
-      .parent-btn { padding: 6px; }
+      .parent-btn { padding: 6px 3px; }
       .parent-action { margin: 4px 10px 4px 0; }
-      .parent-brush-value { min-width: 84px; }
-      .parent-brush-anim { min-width: 0; margin: 4px 0 4px 6px; padding: 0 12px; }
+      /* 375 px breit: alles bis "Fertig" ohne Scrollen (Marc 11.10.): Farbnamen brechen um statt die Felder auf zwei Zeilen zu verteilen,
+         "Animation" steht in der Zeile der Putzzeit, "Ton" und "Abdunkeln" nebeneinander */
+      .parent-grid .parent-btn span:not(.parent-check) { max-width: 68px; text-align: center; overflow-wrap: anywhere; }
+      .parent-brush-value { min-width: 72px; }
+      .parent-brush-anim { min-width: 0; margin: 4px 0 4px 6px; padding: 0 10px; }
+      .parent-col > .parent-sound-row { display: inline-flex; }
       .parent-done { margin-top: 10px; }
       .parent-build { margin-top: 4px; }
     }
@@ -100,8 +104,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-gBaK2lKN.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-n9_bKgfh.js">
+  <script type="module" crossorigin src="./assets/main-BWdeED--.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-Khkumapb.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
