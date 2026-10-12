@@ -80,6 +80,33 @@
     .tile-wait-note { display: block; font-size: 14px; opacity: 0.75; }
     .tile-wait-same { margin: 6px 0; }
     .tile-wait-done { margin-top: 14px; }
+    /* poc-readiness: Unterseiten (Schritte und Zeiten, Unsere Morgen) über der Hauptseite; sie dürfen scrollen */
+    .parent-sub { z-index: 21; }
+    .parent-sub .parent-done { margin-top: 16px; }
+    .parent-more-btn { padding: 0 14px; }
+    .parent-steps-btn { margin-left: 12px; }
+    .parent-reset-row .parent-more-btn { flex: 0 0 auto; padding: 0 14px; }
+    .parent-more-entry { display: flex; width: 100%; max-width: 420px; }
+    .step-rows { display: flex; flex-direction: column; gap: 8px; max-width: 720px; }
+    .step-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 4px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+    .step-icon { display: block; border-radius: 8px; flex: none; }
+    .step-name { min-width: 124px; font-size: 16px; }
+    .step-toggle { min-width: 76px; margin: 0; }
+    .step-toggle[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+    .step-toggle[aria-pressed="false"] { text-decoration: line-through; }
+    .step-toggle--locked { opacity: 0.55; }
+    .step-row--off .step-icon, .step-row--off .step-name { opacity: 0.4; }
+    .step-time-row { display: flex; align-items: center; margin-left: auto; }
+    .step-time-row .parent-wait-step { margin: 0; }
+    .step-time { min-width: 104px; font-size: 17px; }
+    .onboarding { z-index: 22; }
+    .onboarding-text p { margin: 0 0 12px; font-size: 17px; line-height: 1.45; max-width: 560px; }
+    .onboarding-note { margin: 0 0 12px; font-size: 15px; opacity: 0.85; max-width: 560px; }
+    .log-list { list-style: none; margin: 0 0 12px; padding: 0; max-width: 720px; }
+    .log-day { padding: 8px 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+    .log-head { font-size: 16px; font-variant-numeric: tabular-nums; }
+    .log-steps { font-size: 14px; opacity: 0.8; }
+    .log-text { display: block; width: 100%; max-width: 720px; min-height: 160px; margin-top: 8px; font: 13px/1.4 ui-monospace, monospace; color: inherit; background: transparent; border: 2px solid var(--ink); border-radius: 12px; }
     .parent-cols { display: block; }
     @media (max-width: 479px) {
       .parent-layer { padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
@@ -91,6 +118,8 @@
          "Animation" steht in der Zeile der Putzzeit, "Ton" und "Abdunkeln" nebeneinander */
       .parent-grid .parent-btn span:not(.parent-check) { max-width: 68px; text-align: center; overflow-wrap: anywhere; }
       .parent-brush-value { min-width: 72px; }
+      .parent-wait-value:not(.parent-brush-value):not(.step-time) { min-width: 88px; }
+      .parent-steps-btn { margin-left: 8px; padding: 0 10px; }
       .parent-brush-anim { min-width: 0; margin: 4px 0 4px 6px; padding: 0 10px; }
       .parent-col > .parent-sound-row { display: inline-flex; }
       .parent-done { margin-top: 10px; }
@@ -107,8 +136,8 @@
       .parent-build { margin-top: 4px; }
     }
   </style>
-  <script type="module" crossorigin src="./assets/main-q_hnMBJk.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/frame-Cq-o2ACX.js">
+  <script type="module" crossorigin src="./assets/main-Cgfyz7y_.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/frame-D4IXM3kT.js">
 </head>
 <body>
   <div id="stage"><canvas id="c"></canvas></div>
